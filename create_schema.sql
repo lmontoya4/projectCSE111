@@ -1,8 +1,8 @@
 CREATE TABLE stands(
-standID INT;
+standID INT,
 charID INT,
-namesakeID INT,
 name varchar(25),
+range_type varchar(25),
 ability_type varchar(25),
 form_type varchar(25),
 special_type varchar(25)
@@ -12,11 +12,11 @@ PRIMARY KEY(standID),
 
 CREATE TABLE characters(
 charID INT,
-name varchar(25),
-birthday date,
-height decimal (2,2),
-weight decimal (3,2),
-debut INT,
+name varchar (30),
+birth_year INT,
+gender varchar (6),
+hairColor varchar (10),
+debutSeason INT,
 PRIMARY KEY(charID)
 );
 
@@ -26,6 +26,7 @@ charID INT,
 standID INT,
 name varchar(25),
 song varchar(25),
+genre varchar(25),
 artist varchar(25),
 album varchar(25)
 );
@@ -60,5 +61,5 @@ songID INT,
 tittle varchar(25),
 artist varchar(25),
 release_date date,
-PRIMARY KEY(songID);
+PRIMARY KEY(songID)
 );
