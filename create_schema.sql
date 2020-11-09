@@ -21,19 +21,18 @@ PRIMARY KEY(charID)
 );
 
 CREATE TABLE namesakes(
-namesakeID INT, 
+reference varchar(25),
 charID INT,
 standID INT,
-name varchar(25),
 song varchar(25),
-genre varchar(25),
+album varchar(25),
 artist varchar(25),
-album varchar(25)
+genre varchar(25)
 );
 
 CREATE TABLE seasons(
 season_number INT,
-tittle varchar(25),
+title varchar(25),
 protagonistID INT,
 antogonistID INT,
 first_aired date,
@@ -48,9 +47,13 @@ air_date date,
 intro_songID INT,
 outro_songID INT,
 primaryProtag INT,
+primaryProtagStand INT,
 secondaryProtag INT,
+secondaryProtagStand INT,
 primaryAntag INT,
-SecondaryAntag INT,
+primaryAntagStand INT,
+secondaryAntag INT,
+secondaryAntagStand INT,
 PRIMARY KEY(episodeID),
 FOREIGN KEY (intro_songID) REFERENCES songs(songID),
 FOREIGN KEY (outro_songID) REFERENCES songs(songID)

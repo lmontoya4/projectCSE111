@@ -194,7 +194,7 @@ VALUES/*STAND ID, CHARACTER ID, NAME, RANGE TYPE, ABILITY TYPE, FORM TYPE, SPECI
     (061, 093, 'Enigma', 'close', 'psychological assault', 'artificial humanoid', NULL),
     (062, 094, 'Cheap Trick', 'automatic', 'psychological assault', 'natural humanoid', 'shared/sentient'),
     /*PART 5 STANDS*/
-    (063, 096, 'Golden Wind', 'close', 'reconnaissance', 'natural humanoid', NULL),
+    (063, 096, 'Gold Experience', 'close', 'reconnaissance', 'natural humanoid', NULL),
     (064, 097, 'Sticky Fingers', 'close', NULL, 'natural humanoid', NULL),
     (065, 098, 'Moody Blues', 'close', 'reconnaissance', 'artificial humanoid', NULL),
     (066, 099, 'Sex Pistols', 'long', NULL, 'natural humanoid', 'colony/sentient'),
@@ -224,18 +224,141 @@ VALUES/*STAND ID, CHARACTER ID, NAME, RANGE TYPE, ABILITY TYPE, FORM TYPE, SPECI
     
     
 
-INSERT INTO characters
+INSERT INTO namesakes
+VALUES /*REFFERENCE, CHARACTER ID, STAND ID, SONG, ALBUM, ARTIST, GENRE*/
+    /*PART 1 NAMESAKES*/
+    ('Will Anthonio Zeppeli', 002, NULL, NULL, NULL, 'Led Zeppelin', 'rock'),
+    ('Robert E.O. Speedwagon', 003, NULL, NULL, NULL, 'REO Speedwagon', 'rock'),
+    ('Poco', 005, NULL, NULL, NULL, 'poco', 'country rock'),
+    ('Tonpetty', 007, NULL, NULL, NULL, 'Tom Petty', 'rock'),
+    ('Straizo', 008, NULL, NULL, NULL, 'Dire Straits', 'rock'),
+    ('Dire', 009, NULL, NULL, NULL, 'Dire Straits', 'rock'),
+    ('Dio Brando', 010, NULL, NULL, NULL, 'DIO', 'heavy metal'),
+    ('Wang Chan', 011, NULL, NULL, NULL, 'Wang Chung', 'new wave'),
+    ('Tarkus', 013, NULL, NULL, 'Tarkus', 'Emerson, Lake & Palmer', 'progressive rock'),
+    ('Bruford', 014, NULL, NULL, NULL, 'Bill Bruford', 'progressive rock'),
+    /*PART 2 NAMESAKES*/
+    ('Lisa Lisa', 018, NULL, NULL, NULL, 'Lisa Lisa and Cult Jam', 'freestyle'),
+    ('Messina', 020, NULL, NULL, NULL, 'Loggins and Messina', 'rock pop'),
+    ('Loggins', 021, NULL, NULL, NULL, 'Loggins and Messina', 'rock pop'),
+    ('Smokey Brown', 022, NULL, NULL, NULL, 'James Brown', 'funk'),
+    ('Smokey Brown', 022, NULL, NULL, NULL, 'Smokey Robinson', 'r&b'),
+    ('Suzi Q', 023, NULL, 'Suzie Q', NULL, 'Dale Hawkins', 'rockabilly'),
+    ('Kars', 024, NULL, NULL, NULL, 'The Cars', 'rock'),
+    ('Esidisi', 025, NULL, NULL, NULL, 'AC/DC', 'hard rock'),
+    ('Wamuu', 026, NULL, NULL, NULL, 'Wham!', 'pop'),
+    ('Santana', 027, NULL, NULL, NULL, 'Santana', 'latin rock'),
+    ('Donovan', 028, NULL, NULL, NULL, 'Donovan', 'folk rock'),
+    ('Wired Beck', 029, NULL, NULL, 'wired', 'Jeff Beck', 'rock'),
+    /*PART 3 CHARACTER NAMESAKES*/
+    ('Muhammad Avdol', 034, NULL, NULL, NULL, 'Paula Abdul', 'r&b'),
+    ('Jean Pierre Polnareff', 036, NULL, NULL, NULL, 'Michel Polnareff', 'folk rock'),
+    ('Iggy', 037, NULL, NULL, NULL, 'Iggy Pop', 'rock'),
+    ('Roses', 040, NULL, NULL, NULL, 'Guns N Roses', 'hard rock'),
+    ('Enyaba', 041, NULL, NULL, NULL, 'Enya', 'celtic'),
+    ('Vanilla Ice', 042, NULL, NULL, NULL, 'Vanilla Ice', 'rap'),
+    ('Hol Horse', 043, NULL, NULL, NULL, 'Hall & Oates', 'pop rock'),
+    ('Daniel J. D`Arby', 045, NULL, NULL, NULL, 'Terence Trent D`Arby', 'pop'),
+    ('Telence T. D`Arby', 053, NULL, NULL, NULL, 'Terence Trent D`Arby', 'pop'),
+    ('Pet Shop', 46, NULL, NULL, NULL, 'Pet Shop Boys', 'synth pop'),
+    ('N`Doul', 047, NULL, NULL, NULL, 'Youssou N`Dour', 'mbalax'),
+    ('Mariah', 048, NULL, NULL, NULL, 'Mariah Carey', 'r&b'),
+    ('Alessi', 049, NULL, NULL, NULL, 'Alessi Brothers', 'pop rock'),
+    ('Oingo', 050, NULL, NULL, NULL, 'Oingo Boingo', 'ska'),
+    ('Boingo', 051, NULL, NULL, NULL, 'Oingo Boingo', 'ska'),
+    ('Billie Jean', 054, NULL, 'Billie Jean', 'Thriller', 'Michael Jackson', 'disco'),
+    ('Gray Fly', 055, NULL, NULL, NULL, 'Glenn Frey', 'rock'),
+    ('Captain Tennille', 056, NULL, NULL, NULL, 'Captain & Tennille', 'soft rock'),
+    ('Forever', 057, NULL, NULL, 'Wu-Tang Forever', 'Wu-Tang Clan', 'hip hop'),
+    ('Devo', 058, NULL, NULL, NULL, 'Devo', 'rock'),
+    ('Rubber Soul', 059, NULL, NULL, 'Rubber Soul', 'The Beatles', 'folk rock'),
+    ('Centerfold', 060, NULL, 'Centerfold', 'Freeze Frame', 'The J. Geils Band', 'power pop'),
+    ('Nena', 061, NULL, NULL, NULL, 'Nena', 'neue deutsche welle'),
+    ('ZZ', 062, NULL, NULL, NULL, 'ZZ Top', 'rock'),
+    ('Steely Dan', 063, NULL, NULL, NULL, 'Steely Dan', 'rock'),
+    ('Arabia Fats', 64, NULL, NULL, NULL, 'Fats Domino', 'rock and roll'),
+    ('Mannish Boy', 065, NULL, 'Mannish Boy', NULL, 'Muddy Waters', 'chicago blues'),
+    ('Cameo', 066, NULL, NULL, NULL, 'Cameo', 'r&b'),
+    ('Midler', 067, NULL, NULL, NULL, 'Bette Midler', 'pop'),
+    /*PART 3 STANDS*/
+    ('Tower of Gray', NULL, 008, 'Fade to Grey', 'Visage', 'Visage', 'synth pop'),
+    ('Dark Blue Moon', NULL, 009, 'Blue Moon', NULL, 'Richard Rodgers', 'ballad'),
+    ('Cream', NULL, 033, NULL, NULL, 'Cream', 'rock'),
+    /*PART 4 CHARACTERS*/
+    ('Reimi Sugimoto', 073, NULL, 'See Emily Play', 'The Piper at the Gates of Dawn', 'Pink Floyd', 'rock'),
+    /*PART 4 STANDS*/
+    ('Crazy Diamond', NULL, 034, 'Shine On You Crazy Diamond', 'Wish You Were Here', 'Pink Floyd', 'progressive rock'),
+    ('The Hand', NULL, 035, NULL, NULL, 'The Band', 'rock'),
+    ('Echoes ACT 1', NULL, 036, 'Echoes', 'Meddle', 'Pink Floyd', 'progressive rock'),
+    ('Echoes ACT 2', NULL, 037, 'Echoes', 'Meddle', 'Pink Floyd', 'progressive rock'),
+    ('Echoes ACT 3', NULL, 038, 'Echoes', 'Meddle', 'Pink Floyd', 'progressive rock'),
+    ('Heavens Door', NULL, 039, 'Knockin` on Heavens Door', 'Pat Garrett & Billy the Kid', 'Bob Dylan', 'folk rock'),
+    ('Love Deluxe', NULL, 041, NULL, 'Love Deluxe', 'Sade', 'ambient'),
+    ('Harvest', NULL, 042, NULL, 'Harvest', 'Neil Young', 'folk rock'),
+    ('Killer Queen', NULL, 043, 'Killer Queen', 'Sheer Heart Attack', 'Queen', 'power pop'),
+    ('Killer Queen Sheer Heart Attack', NULL, 044, NULL, 'Sheer Heart Attack', 'Queen', 'power pop'),
+    ('Killer Queen Bites the Dust', NULL, 045, 'Another One Bites the Dust', 'The Game', 'Queen', 'funk rock'),
+    ('Aqua necklace', NULL, 046, NULL, 'Aqua', 'Asia', 'progressive rock'),
+    ('Bad Company', NULL, 047, NULL, NULL, 'Bad Company', 'hard rock'),
+    ('Red Hot Chili Pepper', NULL, 048, NULL, NULL, 'Red Hot Chili Peppers', 'alternative rock'),
+    ('The Lock', NULL, 049, 'The Rock', 'Quadrophenia', 'The Who', 'hard rock'),
+    ('Surface', NULL, 050, NULL, NULL, 'Surface', 'pop'),
+    ('Pearl Jam', NULL, 051, NULL, NULL, 'Pearl Jam', 'alternative rock'),
+    ('Achtung Baby', NULL, 052, NULL, 'Achtung Baby', 'U2', 'alternative rock'),
+    ('Ratt', NULL, 053, NULL, NULL, 'Ratt', 'heavy metal'),
+    ('Cinderella', NULL, 054, NULL, NULL, 'Cinderella', 'glam metal'),
+    ('Atom Heart Father', NULL, 055, NULL, 'Atom Heart Mother', 'Pink Floyd', 'progressive rock'),
+    ('Boy II Man', NULL, 056, NULL, NULL, 'Boyz II Men', 'r&b'),
+    ('Earth Wind and Fire', NULL, 057, NULL, NULL, 'Earth, Wind & Fire', 'r&b'),
+    ('Highway Star', NULL, 058, 'Highway Star', 'Machine Head', 'Deep Purple', 'hard rock'),
+    ('Stray Cat', NULL, 059, NULL, NULL, 'Stray Cats', 'rockabilly'),
+    ('Super Fly', NULL, 060, NULL, 'Super Fly', 'Curtis Mayfield', 'soul'),
+    ('Enigma', NULL, 061, NULL, NULL, 'Enigma', 'ambient'),
+    ('Cheap Trick', NULL, 062, NULL, NULL, 'Cheap Trick', 'rock'),
+    /*PART 5 CHARACTERS*/
+    ('Coco Jumbo the Turtle', 103, NULL, 'Coco Jamboo', 'We See the Same Sun', 'Mr. President', 'eurodance'),
+    ('Mario Zucchero', 113, NULL, NULL, NULL, 'Zucchero', 'blues'),
+    /*PART 5 STANDS*/
+    ('The Gold Experience', NULL, 063, NULL, 'The Gold Experience', 'Prince', 'funk rock'),
+    ('Sticky Fingers', NULL, 062, NULL, 'Sticky Fingers', 'The Rolling Stones', 'hard rock'),
+    ('Moody Blues', NULL, 065, NULL, NULL, 'The Moody Blues', 'progressive rock'),
+    ('Sex Pistols', NULL, 066, NULL, NULL, 'Sex Pistols', 'punk rock'),
+    ('Aerosmith', NULL, 067, NULL, NULL, 'Aerosmith', 'hard rock'),
+    ('Purple Haze', NULL, 068, 'Purple Haze', 'The Jimi Hendrix Experience', 'Jimi Hendrix', 'psychedelic rock'),
+    ('Spice Girl', NULL, 069, NULL, NULL, 'Spice Girls', 'pop'),
+    ('Chariot Requiem', NULL, 070, 'Requiem', NULL, 'Mozart', 'classical'),
+    ('Gold Experience Requiem', NULL, 071, 'Requiem', NULL, 'Mozart', 'classical'),
+    ('King Crimson', NULL, 072, NULL, NULL, 'King Crimson', 'progressive rock'),
+    ('Black Sabbath', NULL, 073, NULL, NULL, 'Black Sabbath', 'heavy metal'),
+    ('Soft Machine', NULL, 074, NULL, NULL, 'Soft Machine', 'psychedelic rock'),
+    ('Kraft Work', NULL, 075, NULL, NULL, 'Kraftwerk', 'electronic'),
+    ('Little Feet', NULL, 076, NULL, NULL, 'Little Feat', 'country rock'),
+    ('Man in the Mirror', NULL, 077, 'Man in the Mirror', 'Bad', 'Michael Jackson', 'pop'),
+    ('Mr. President', NULL, 078, NULL, NULL, 'Mr. President', 'eurodance'),
+    ('Beach Boy', NULL, 079, NULL, NULL, 'The Beach Boys', 'surf rock'),
+    ('The Grateful Dead', NULL, 080, NULL, NULL, 'The Grateful Dead', 'rock'),
+    ('Baby Face', NULL, 081, NULL, NULL, 'Babyface', 'r&b'),
+    ('White Album', NULL, 082, NULL, 'White Album', 'The Beatles', 'rock'),
+    ('Clash', NULL, 083, NULL, NULL, 'Clash', 'punk rock'),
+    ('Talking Head', NULL, 084, NULL, NULL, 'Talking Heads', 'post punk'),
+    ('Notorious B.I.G.', NULL, 085, NULL, NULL, 'Notorious B.I.G.', 'hip hop'),
+    ('Metallica', NULL, 086, NULL, NULL, 'Metallica', 'heavy metal'),
+    ('Green Day', NULL, 087, NULL, NULL, 'Green Day', 'punk rock'),
+    ('Oasis', NULL, 088, NULL, NULL, 'Oasis', 'rock'),
+    ('Rolling Stones', NULL, 089, NULL, NULL, 'The Rolling Stones', 'rock');
+
+INSERT INTO seasons
+VALUES/*SEASON NUMBER, SEASON TITLE, PROTAGONIST ID, ANTAGONIST ID, FIRST AIRED, LAST AIRED*/
+    (1, 'Phantom Blood', 001, 010, 10-05-2012, 11-30-2012),
+    (2, 'Battle Tendency', 016, 024, 12-07-2012, 04-05-2013),
+    (3, 'Stardust Crusaders', 033, 010, 04-04-2014, 06-19-2015),
+    (4, 'Diamond is Unbreakable', 068, 085, 04-01-2016, 12-23-2016),
+    (5, 'Golden Wind', 096, 105, 10-05-2018, 07-28-2019);
+
+INSERT INTO episodes
 VALUES
     (),
 
-INSERT INTO characters
-VALUES
-    (),
-
-INSERT INTO characters
-VALUES
-    (),
-
-INSERT INTO characters
+INSERT INTO songs
 VALUES
     (),
