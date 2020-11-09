@@ -43,17 +43,14 @@ PRIMARY KEY(season_number)
 CREATE TABLE episodes(
 episodeID INT,
 seasonID INT,
+episode_name varchar(25),
 air_date date,
 intro_songID INT,
 outro_songID INT,
 primaryProtag INT,
-primaryProtagStand INT,
 secondaryProtag INT,
-secondaryProtagStand INT,
 primaryAntag INT,
-primaryAntagStand INT,
 secondaryAntag INT,
-secondaryAntagStand INT,
 PRIMARY KEY(episodeID),
 FOREIGN KEY (intro_songID) REFERENCES songs(songID),
 FOREIGN KEY (outro_songID) REFERENCES songs(songID)
@@ -61,7 +58,7 @@ FOREIGN KEY (outro_songID) REFERENCES songs(songID)
 
 CREATE TABLE songs(
 songID INT,
-tittle varchar(25),
+title varchar(25),
 artist varchar(25),
 release_date date,
 PRIMARY KEY(songID)
