@@ -349,24 +349,23 @@ VALUES /*REFFERENCE, CHARACTER ID, STAND ID, SONG, ALBUM, ARTIST, GENRE*/
 
 INSERT INTO seasons
 VALUES/*SEASON NUMBER, SEASON TITLE, PROTAGONIST ID, ANTAGONIST ID, FIRST AIRED, LAST AIRED*/
-    (1, "Phantom Blood", 001, 010, 10-05-2012, 11-30-2012),
-    (2, "Battle Tendency", 016, 024, 12-07-2012, 04-05-2013),
-    (3, "Stardust Crusaders", 033, 010, 04-04-2014, 06-19-2015),
-    (4, "Diamond is Unbreakable", 068, 085, 04-01-2016, 12-23-2016),
-    (5, "Golden Wind", 096, 105, 10-05-2018, 07-28-2019);
+    (1, "Phantom Blood", 001, 010, '2012-10-05', '2012-11-30'),
+    (2, "Battle Tendency", 016, 024, '2012-12-07', '2013-04-05'),
+    (3, "Stardust Crusaders", 033, 010, '2014-04-04', '2015-06-19'),
+    (4, "Diamond is Unbreakable", 068, 085, '2016-04-01', '2016-12-23'),
+    (5, "Golden Wind", 096, 105, '2018-10-05', '2019-07-28');
 
 INSERT INTO episodes
 VALUES /*episodeID, seasonID, episode_name, air_date, intro_songID, outro_songID, primaryProtag, secondaryProtag, primaryAntag, secondaryAntag*/
-    /*PART 1 EPISODES*/
-    (001, 1, "Dio the Invader", 10-06-2012, NULL, 10, 001, NULL, 010, NULL),
-    (002, 1, "A Letter from the Past", 10-12-2012, 01, 10, , , , ),
-    (003, 1, "Youth with Dio", 10-19-2012, 01, 10, , , , ),
-    (004, 1, "Overdrive", 10-26-2012, 01, 10, , , , ),
-    (005, 1, "The Dark Knights", 11-02-2012, 01, 10, , , , ),
-    (006, 1, "Pluck for Tomorrow", 11-09-2012, 01, 10, , , , ),
-    (007, 1, "The Successor", 11-16-2012, 01, 10, , , , ),
-    (008, 1, "Bloody Battle! JoJo & Dio", 11-23-2012, 01, 10, , , , ),
-    (009, 1, "The Final Ripple!", 11-30-2012, 01, 10, , , , ),
+    (001, 1, "Dio the Invader", 2012-10-06, 01, 10, 001,NULL,010,NULL),
+    (002, 1, "A Letter from the Past", 2012-10-12,01, 10,001,NULL,010,NULL),
+    (003, 1, "Youth with Dio", 2012-10-19, 01, 10,001,NULL,010,NULL),
+    (004, 1, "Overdrive", 2012-10-26, 01, 10,001,NULL,010,NULL),
+    (005, 1, "The Dark Knights", 2012-11-02, 01, 10,001,NULL,010,NULL),
+    (006, 1, "Pluck for Tomorrow", 2012-11-09, 01, 10,001,NULL,010,NULL),
+    (007, 1, "The Successor", 2012-11-16, 01, 10,001,NULL,010,NULL),
+    (008, 1, "Bloody Battle! JoJo & Dio", 2012-11-23, 01, 10,001,NULL,010,NULL),
+    (009, 1, "The Final Ripple!", 2012-11-30, 01, 10,001,NULL,010,NULL),
     /*PART 2 EPISODES*/
     (010, 2, "JoJo of New York", 12-07-2012, NULL, 10, , , , ),
     (011, 2, "Master of the Game", 12-14-2012, 02, 10, , , , ),
@@ -535,3 +534,90 @@ VALUES /*SONG ID, TITLE, ARTIST, RELEASE DATE*/
     (14, "I Want You", "Savage Garden", 05-27-1996),
     (15, "Freek'n You", "Jodeci", 05-30-1995),
     (16, "Modern Crusaders", "Enigma", 01-14-2000);
+
+
+     /*20 queries:     */
+
+--1. Given a character, check if in which season it appeared and and in which episodes.
+--name=Jonathan Joestar
+
+SELECT title,episode_name
+FROM characters,seasons,episodes
+WHERE debutSeason=season_number AND debutSeason=seasonID AND name='Jonathan Joestar';
+
+--2.how many  different intro and outro songs are in each season
+
+SELECT title,COUNT(DISTINCT intro_songID),COUNT(DISTINCT outro_songID)
+FROM seasons, episodes
+WHERE season_number=seasonID
+GROUP BY title; 
+
+--3.how many characters are in each season
+
+SELECT title,COUNT(charID) as num_char
+FROM characters,seasons
+WHERE season_number=debutSeason
+GROUP BY title;
+
+--4. which character were  not the protagonist or antagonist
+
+SELECT title, name
+FROM characters,seasons
+WHERE season_number=debutSeason
+EXCEPT 
+SELECT  title, name
+FROM characters,seasons
+WHERE season_number=debutSeason AND (charID =protagonistID OR charID= antogonistID);
+
+
+--5. Which character appeared in the most episodes and is a secondaryProtag
+SELECT name,MAX(num_appeared)
+FROM(
+SELECT name, COUNT(name) AS num_appeared
+FROM
+(SELECT  title, name
+FROM characters,seasons, episodes
+WHERE season_number=debutSeason AND season_number=seasonID AND charID=secondaryProtag
+GROUP BY title));
+
+
+--6. Given a season, give information and protagonists
+
+SELECT title,first_aired,last_aired,name AS character
+FROM seasons,characters
+WHERE charID= protagonistID;
+
+--7. how many female and how many male characters are in each season->grouped
+
+
+SELECT  title, gender,COUNT(name) AS num_appeared
+FROM characters,seasons
+WHERE season_number=debutSeason 
+GROUP BY title,gender;
+
+
+--8.calculate how old each character is today based on their birth_year
+SELECT name, strftime('%Y','now') - birth_year AS age
+FROM characters;
+
+--9.which season is the longest
+
+SELECT title, MAX(days_it_lasted)
+FROM(
+SELECT title, julianday(last_aired)- julianday(first_aired) AS days_it_lasted          
+FROM seasons);
+
+--10.which season is the shortest
+SELECT title, MIN(days_it_lasted)
+FROM(
+SELECT title, julianday(last_aired) - julianday(first_aired) AS days_it_lasted          
+FROM seasons);
+
+
+
+
+
+
+
+
+
