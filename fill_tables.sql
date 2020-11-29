@@ -349,32 +349,33 @@ VALUES /*REFFERENCE, CHARACTER ID, STAND ID, SONG, ALBUM, ARTIST, GENRE*/
 
 INSERT INTO seasons
 VALUES/*SEASON NUMBER, SEASON TITLE, PROTAGONIST ID, ANTAGONIST ID, FIRST AIRED, LAST AIRED*/
-    (1, "Phantom Blood", 001, 010, '2012-10-05', '2012-11-30'),
-    (2, "Battle Tendency", 016, 024, '2012-12-07', '2013-04-05'),
-    (3, "Stardust Crusaders", 033, 010, '2014-04-04', '2015-06-19'),
-    (4, "Diamond is Unbreakable", 068, 085, '2016-04-01', '2016-12-23'),
-    (5, "Golden Wind", 096, 105, '2018-10-05', '2019-07-28');
+    (1, "Phantom Blood", 001, 010, 10-05-2012, 11-30-2012),
+    (2, "Battle Tendency", 016, 024, 12-07-2012, 04-05-2013),
+    (3, "Stardust Crusaders", 033, 010, 04-04-2014, 06-19-2015),
+    (4, "Diamond is Unbreakable", 068, 085, 04-01-2016, 12-23-2016),
+    (5, "Golden Wind", 096, 105, 10-05-2018, 07-28-2019);
 
 INSERT INTO episodes
 VALUES /*episodeID, seasonID, episode_name, air_date, intro_songID, outro_songID, primaryProtag, secondaryProtag, primaryAntag, secondaryAntag*/
-    (001, 1, "Dio the Invader", 2012-10-06, 01, 10, 001,NULL,010,NULL),
-    (002, 1, "A Letter from the Past", 2012-10-12,01, 10,001,NULL,010,NULL),
-    (003, 1, "Youth with Dio", 2012-10-19, 01, 10,001,NULL,010,NULL),
-    (004, 1, "Overdrive", 2012-10-26, 01, 10,001,NULL,010,NULL),
-    (005, 1, "The Dark Knights", 2012-11-02, 01, 10,001,NULL,010,NULL),
-    (006, 1, "Pluck for Tomorrow", 2012-11-09, 01, 10,001,NULL,010,NULL),
-    (007, 1, "The Successor", 2012-11-16, 01, 10,001,NULL,010,NULL),
-    (008, 1, "Bloody Battle! JoJo & Dio", 2012-11-23, 01, 10,001,NULL,010,NULL),
-    (009, 1, "The Final Ripple!", 2012-11-30, 01, 10,001,NULL,010,NULL),
+    /*PART 1 EPISODES*/
+    (001, 1, "Dio the Invader", 10-06-2012, NULL, 10, 001, NULL, 010, NULL),
+    (002, 1, "A Letter from the Past", 10-12-2012, 01, 10, 001, NULL, 010, 003),
+    (003, 1, "Youth with Dio", 10-19-2012, 01, 10, 001, 030, 010, NULL),
+    (004, 1, "Overdrive", 10-26-2012, 01, 10, 001, 002, 010, NULL),
+    (005, 1, "The Dark Knights", 11-02-2012, 01, 10, 001, 002, 014, 013),
+    (006, 1, "Pluck for Tomorrow", 11-09-2012, 01, 10, 001, 002, 014, 013),
+    (007, 1, "The Successor", 11-16-2012, 01, 10, 001, 002, 013, NULL),
+    (008, 1, "Bloody Battle! JoJo & Dio", 11-23-2012, 01, 10, 001, 003, 010, NULL),
+    (009, 1, "The Final Ripple!", 11-30-2012, 01, 10, 001, 004, 010, 011),
     /*PART 2 EPISODES*/
-    (010, 2, "JoJo of New York", 12-07-2012, NULL, 10, , , , ),
-    (011, 2, "Master of the Game", 12-14-2012, 02, 10, , , , ),
-    (012, 2, "The Pillar Man", 12-21-2012, 02, 10, , , , ),
-    (013, 2, "JoJo vs. the Ultimate Life-Form", 01-04-2013, 02, 10, , , , ),
-    (014, 2, "Ultimate Warriors from Ancient Times", 01-11-2013, 02, 10, , , , ),
-    (015, 2, "A Hero's Proof", , 02, 10, , , , ),
-    (016, 2, "Ripple Teacher Lisa Lisa", 01-25-2013, 02, 10, , , , ),
-    (017, 2, "A Deeper Trap!", 02-01-2013, 02, 10, , , , ),
+    (010, 2, "JoJo of New York", 12-07-2012, NULL, 10, 016, 022, 008, NULL),
+    (011, 2, "Master of the Game", 12-14-2012, 02, 10, 016, 003, 008, 019),
+    (012, 2, "The Pillar Man", 12-21-2012, 02, 10, 016, 003, 027, NULL),
+    (013, 2, "JoJo vs. the Ultimate Life-Form", 01-04-2013, 02, 10, 016, 019, 008, NULL),
+    (014, 2, "Ultimate Warriors from Ancient Times", 01-11-2013, 02, 10, 016, 017, 026, 025),
+    (015, 2, "A Hero's Proof", 01-18-2013, 02, 10, 016, 017, 026, 025),
+    (016, 2, "Ripple Teacher Lisa Lisa", 01-25-2013, 02, 10, 016, 017, 018, NULL),
+    /*(017, 2, "A Deeper Trap!", 02-01-2013, 02, 10, , , , ),
     (018, 2, "Stroheim's Unit Strikes Back", 02-08-2013, 02, 10, , , , ),
     (019, 2, "A Race Toward the Brink", 02-15-2013, 02, 10, , , , ),
     (020, 2, "Caesar: A Lonely Youth", 02-22-2013, 02, 10, , , , ),
@@ -385,7 +386,7 @@ VALUES /*episodeID, seasonID, episode_name, air_date, intro_songID, outro_songID
     (025, 2, "The Birth of a Superbeing!!", 03-29-2013, 02, 10, , , , ),
     (026, 2, "The Man Who Became a God", 04-05-2013, 02, 02, , , , ),
     /*PART 3 EPISODES*/
-    (027, 3, "A Man Possessed by an Evil Spirit", 04-04-2014, NULL, NULL, , , ,),
+    /*(027, 3, "A Man Possessed by an Evil Spirit", 04-04-2014, NULL, NULL, , , ,),
     (028, 3, "Who Will Be the Judge", 04-11-2014, 03, NULL, , , ,),
     (029, 3, "DIO's Curse", 04-18-2014, 03, 11, , , ,),
     (030, 3, "Tower of Gray", 04-25-2014, 03, 11, , , ,),
@@ -434,90 +435,90 @@ VALUES /*episodeID, seasonID, episode_name, air_date, intro_songID, outro_songID
     (073, 3, "DIO's World, Part 3", 06-12-2015, 04, NULL, , , ,),
     (074, 3, "The Faraway Journey, Farewell Friends", 06-19-2015, 04, 12, , , ,),
     /*PART 4 EPISODES*/
-    (075, 4, "", , NULL, NULL, , , ,),
-    (076, 4, "", , 05, 14, , , ,),
-    (077, 4, "", , 05, 14, , , ,),
-    (078, 4, "", , 05, 14, , , ,),
-    (079, 4, "", , 05, 14, , , ,),
-    (080, 4, "", , 05, 14, , , ,),
-    (081, 4, "", , 05, 14, , , ,),
-    (082, 4, "", , 05, NULL, , , ,),
-    (083, 4, "", , 05, 14, , , ,),
-    (084, 4, "", , NULL, 14, , , ,),
-    (085, 4, "", , 05, 14, , , ,),
-    (086, 4, "", , 05, 14, , , ,),
-    (087, 4, "", , 05, 14, , , ,),
-    (088, 4, "", , NULL, 14, , , ,),
-    (089, 4, "", , 06, 14, , , ,),
-    (090, 4, "", , 06, 14, , , ,),
-    (091, 4, "", , NULL, NULL, , , ,),
-    (092, 4, "", , 06, 14, , , ,),
-    (093, 4, "", , 06, 14, , , ,),
-    (094, 4, "", , NULL, NULL, , , ,),
-    (095, 4, "", , 06, 14, , , ,),
-    (096, 4, "", , 06, 14, , , ,),
-    (097, 4, "", , 06, 14, , , ,),
-    (098, 4, "", , 06, NULL, , , ,),
-    (099, 4, "", , NULL, 14, , , ,),
-    (100, 4, "", , 06, 14, , , ,),
-    (101, 4, "", , 07, NULL, , , ,),
-    (102, 4, "", , 07, 14, , , ,),
-    (103, 4, "", , 07, 14, , , ,),
-    (104, 4, "", , 07, 14, , , ,),
-    (105, 4, "", , 07, 14, , , ,),
-    (106, 4, "", , NULL, 14, , , ,),
-    (107, 4, "", , 07, 14, , , ,),
-    (108, 4, "", , 07, NULL, , , ,),
-    (109, 4, "", , 07, 14, , , ,),
-    (110, 4, "", , 07, NULL, , , ,),
-    (111, 4, "", , 07, 14, , , ,),
-    (112, 4, "", , 07, 14, , , ,),
-    (113, 4, "", , 07, NULL, , , ,),
+    /*(075, 4, "Jotaro Kujo! Meets Josuke Higashikata", 04-01-2016, NULL, NULL, , , ,),
+    (076, 4, "Josuke Higashikata! Meets Angelo", 04-08-2016, 05, 14, , , ,),
+    (077, 4, "The Nijimura Brothers, Part 1", 04-08-2016, 05, 14, , , ,),
+    (078, 4, "The Nijimura Brothers, Part 2", 04-22-2016, 05, 14, , , ,),
+    (079, 4, "The Nijimura brothers, Part 3", 04-29-2016, 05, 14, , , ,),
+    (080, 4, "Koichi Hirose (Echoes)", 05-06-2016, 05, 14, , , ,),
+    (081, 4, "Toshikazu Hazamada (Surface)", 05-13-2016, 05, 14, , , ,),
+    (082, 4, "Yukako Yamagishi Falls in Love, Part 1", 05-20-2016, 05, NULL, , , ,),
+    (083, 4, "Yukako Yamagashi falls in Love, Part 2", 05-27-2016, 05, 14, , , ,),
+    (084, 4, "Let's Go Eat Some italian Food", 06-3-2016, NULL, 14, , , ,),
+    (085, 4, "Red Hot Chili Pepper, Part 1", 06-10-2016, 05, 14, , , ,),
+    (086, 4, "Red Hot Chili Pepper, Part 2", 06-17-2016, 05, 14, , , ,),
+    (087, 4, "We Picked Up Something Crazy!", 06-24-2016, 05, 14, , , ,),
+    (088, 4, "Let's Go to the Manga Artist's House, Part 1", 07-01-2016, NULL, 14, , , ,),
+    (089, 4, "Let's Go to the Manga Artist's House, Part 2", 07-08-2016, 06, 14, , , ,),
+    (090, 4, "Let's Go Hunting!", 07-15-2016, 06, 14, , , ,),
+    (091, 4, "Rohan Kishibe's Adventure", 07-22-2016, NULL, NULL, , , ,),
+    (092, 4, "Shigechi's Harvest, Part 1", 07-29-2016, 06, 14, , , ,),
+    (093, 4, "Shigechi's harvest, Part 2", 08-05-2016, 06, 14, , , ,),
+    (094, 4, "Yukako Yamagishi Dreams of Cinderella", 08-12-2016, NULL, NULL, , , ,),
+    (095, 4, "Yoshikage Kira Just Wants to Live Quietly, Part 1", 08-19-2016, 06, 14, , , ,),
+    (096, 4, "Yoshikage kira just Wants to Live Quietly, Part 2", 08-19-2016, 06, 14, , , ,),
+    (097, 4, "Sheer heart Attack, Part 1", 09-02-2016, 06, 14, , , ,),
+    (098, 4, "Sheer Heart Attack, Part 2", 09-09-2016, 06, NULL, , , ,),
+    (099, 4, "Atom Heart Father", 09-16-2016, NULL, 14, , , ,),
+    (100, 4, "Janken Boy In Coming!", 09-23-2016, 06, 14, , , ,),
+    (101, 4, "I'm An Alien", 09-30-2016, 07, NULL, , , ,),
+    (102, 4, "Highway Star, Part 1", 10-07-2016, 07, 14, , , ,),
+    (103, 4, "Highway Star, Part 2", 10-21-2016, 07, 14, , , ,),
+    (104, 4, "Cats Love Yoshikage Kira", 10-21-2016, 07, 14, , , ,),
+    (105, 4, "July 15th (Thursday), Part 1", 10-28-2016, 07, 14, , , ,),
+    (106, 4, "July 15th (Thursday), Part 2", 11-04-2016, NULL, 14, , , ,),
+    (107, 4, "July 15th (Thursday), Part 3", 11-11-2016, 07, 14, , , ,),
+    (108, 4, "July 15th (Thursday), Part 4", 11-18-2016, 07, NULL, , , ,),
+    (109, 4, "Another One Bites the Dust, Part 1", 11-25-2016, 07, 14, , , ,),
+    (110, 4, "Another One Bites the Dust, Part 2", 12-02-2016, 07, NULL, , , ,),
+    (111, 4, "Crazy Diamond Is Unbreakable, Part 1", 12-09-2016, 07, 14, , , ,),
+    (112, 4, "Crazy Diamond Is Unbreakable, Part 2", 12-16-2016, 07, 14, , , ,),
+    (113, 4, "Goodbye, Morioh - The Golden Heart", 12-23-2016, 07, NULL, , , ,),
     /*PART 5 EPISODES*/
-    (114, 5, "", , NULL, NULL, , , ,),
-    (115, 5, "", , 08, 15, , , ,),
-    (116, 5, "", , 08, 15, , , ,),
-    (117, 5, "", , 08, 15, , , ,),
-    (118, 5, "", , 08, NULL, , , ,),
-    (119, 5, "", , 08, 15, , , ,),
-    (120, 5, "", , 08, 15, , , ,),
-    (121, 5, "", , 08, 15, , , ,),
-    (122, 5, "", , 08, NULL, , , ,),
-    (123, 5, "", , 08, 15, , , ,),
-    (124, 5, "", , 08, 15, , , ,),
-    (125, 5, "", , 08, 15, , , ,),
-    (126, 5, "", , 08, 15, , , ,),
-    (127, 5, "", , 08, 15, , , ,),
-    (128, 5, "", , 08, 15, , , ,),
-    (129, 5, "", , 08, 15, , , ,),
-    (130, 5, "", , 08, 15, , , ,),
-    (131, 5, "", , 08, 15, , , ,),
-    (132, 5, "", , 08, 15, , , ,),
-    (133, 5, "", , 08, NULL, , , ,),
-    (134, 5, "", , 08, NULL, , , ,),
-    (135, 5, "", , 09, 16, , , ,),
-    (136, 5, "", , 09, 16, , , ,),
-    (137, 5, "", , 09, 16, , , ,),
-    (138, 5, "", , 09, 16, , , ,),
-    (139, 5, "", , 09, 16, , , ,),
-    (140, 5, "", , 09, 16, , , ,),
-    (141, 5, "", , 09, 16, , , ,),
-    (142, 5, "", , 09, 16, , , ,),
-    (143, 5, "", , 09, 16, , , ,),
-    (144, 5, "", , 09, 16, , , ,),
-    (145, 5, "", , 09, 16, , , ,),
-    (146, 5, "", , 09, 16, , , ,),
-    (147, 5, "", , 09, 16, , , ,),
-    (148, 5, "", , 09, 16, , , ,),
-    (149, 5, "", , 09, 16, , , ,),
-    (150, 5, "", , 09, 16, , , ,),
-    (151, 5, "", , 09, NULL, , , ,),
-    (152, 5, "", , 09, 16, , , ,),
+    /*(114, 5, "Gold Experience", 10-05-2018, NULL, NULL, , , ,),
+    (115, 5, "Bucciarati Is Coming", 10-12-2018, 08, 15, , , ,),
+    (116, 5, "Meet the Gangster Behind the Wall", 10-19-2018, 08, 15, , , ,),
+    (117, 5, "Joining the Gang", , 08, 15, , , ,),
+    (118, 5, "Find Polpo's Fortune!", 11-02-2018, 08, NULL, , , ,),
+    (119, 5, "Moody Blues' Counterattack", 11-09-2018, 08, 15, , , ,),
+    (120, 5, "Sex Pistols Appear, Part 1", 11-16-2018, 08, 15, , , ,),
+    (121, 5, "Sex Pistols Appear, Part 2", 11-23-2018, 08, 15, , , ,),
+    (122, 5, "The First Order from the Boss", 11-30-2018, 08, NULL, , , ,),
+    (123, 5, "The Hitman Team", 12-07-2018, 08, 15, , , ,),
+    (124, 5, "Narancia's Aerosmith", 12-14-2018, 08, 15, , , ,),
+    (125, 5, "Second Orders from the Boss", 12-21-2018, 08, 15, , , ,),
+    (126, 5, "Man in the Mirror and Purple Haze", 12-28-2018, 08, 15, , , ,),
+    (127, 5, "Express Train to Florence", 01-11-2019, 08, 15, , , ,),
+    (128, 5, "The Grateful Dead, Part 1", 01-18-2019, 08, 15, , , ,),
+    (129, 5, "The Grateful Dead, Part2", 01-25-2019, 08, 15, , , ,),
+    (130, 5, "Baby Face", 02-01-2019, 08, 15, , , ,),
+    (131, 5, "Head to Venice!", 02-08-2019, 08, 15, , , ,),
+    (132, 5, "White Album", 02-15-2019, 08, 15, , , ,),
+    (133, 5, "The Boss' Last Orders", 02-22-2019, 08, NULL, , , ,),
+    (134, 5, "The Mystery of King Crimson", 03-01-2019, 08, NULL, , , ,),
+    (135, 5, "The 'G' in Guts", 03-15-2019, 09, 16, , , ,),
+    (136, 5, "Clash and talking Head", 03-22-2019, 09, 16, , , ,),
+    (137, 5, "Notorious B.I.G", 03-29-2019, 09, 16, , , ,),
+    (138, 5, "Spice Girl", 04-05-2019, 09, 16, , , ,),
+    (139, 5, "A Little Story From the Past ~ My Name Is Doppio", 04-12-2019, 09, 16, , , ,),
+    (140, 5, "King Crimson vs. Metallica", 04-19-2019, 09, 16, , , ,),
+    (141, 5, "Beneath a Sky on the Verge of Falling", 04-26-2019, 09, 16, , , ,),
+    (142, 5, "Destination: Rome! The Colosseum", 05-10-2019, 09, 16, , , ,),
+    (143, 5, "Green Day and Oasis, Part 1", 05-17-2019, 09, 16, , , ,),
+    (144, 5, "Green Day and Oasis, Part 2", 05-24-2019, 09, 16, , , ,),
+    (145, 5, "Green Day and Oasis, part 3", 05-31-2019, 09, 16, , , ,),
+    (146, 5, "His Name Is Diavolo", 06-07-2019, 09, 16, , , ,),
+    (147, 5, "The Requiem Quietly Plays, Part 1", 06-14-2019, 09, 16, , , ,),
+    (148, 5, "The Requiem Quietly Plays, Part 2", 06-21-2019, 09, 16, , , ,),
+    (149, 5, "Diavolo Surfaces", 06-28-2019, 09, 16, , , ,),
+    (150, 5, "King of Kings", 07-05-2019, 09, 16, , , ,),
+    (151, 5, "Gold Experience Requiem", 07-28-2019, 09, NULL, , , ,),
+    (152, 5, "Sleeping Slaves", 07-28-2019, 09, 16, , , ,),*/
 
 INSERT INTO songs
 VALUES /*SONG ID, TITLE, ARTIST, RELEASE DATE*/
     /*INTRO SONGS*/
-    (01, "JoJo ~Sono Chi no Sadame~", "Hiroaki "TOMMY" Tominaga", 11-21-2012),
+    (01, "JoJo ~Sono Chi no Sadame~", "Hiroaki 'TOMMY' Tominaga", 11-21-2012),
     (02, "BLOODY STREAM", "Coda", 01-30-2013),
     (03, "STAND PROUD", "Jin Hashimoto", 04-23-2014),
     (04, "JoJo Sono Chi no Kioku", "JO STARS", 01-28-2015),
@@ -534,90 +535,3 @@ VALUES /*SONG ID, TITLE, ARTIST, RELEASE DATE*/
     (14, "I Want You", "Savage Garden", 05-27-1996),
     (15, "Freek'n You", "Jodeci", 05-30-1995),
     (16, "Modern Crusaders", "Enigma", 01-14-2000);
-
-
-     /*20 queries:     */
-
---1. Given a character, check if in which season it appeared and and in which episodes.
---name=Jonathan Joestar
-
-SELECT title,episode_name
-FROM characters,seasons,episodes
-WHERE debutSeason=season_number AND debutSeason=seasonID AND name='Jonathan Joestar';
-
---2.how many  different intro and outro songs are in each season
-
-SELECT title,COUNT(DISTINCT intro_songID),COUNT(DISTINCT outro_songID)
-FROM seasons, episodes
-WHERE season_number=seasonID
-GROUP BY title; 
-
---3.how many characters are in each season
-
-SELECT title,COUNT(charID) as num_char
-FROM characters,seasons
-WHERE season_number=debutSeason
-GROUP BY title;
-
---4. which character were  not the protagonist or antagonist
-
-SELECT title, name
-FROM characters,seasons
-WHERE season_number=debutSeason
-EXCEPT 
-SELECT  title, name
-FROM characters,seasons
-WHERE season_number=debutSeason AND (charID =protagonistID OR charID= antogonistID);
-
-
---5. Which character appeared in the most episodes and is a secondaryProtag
-SELECT name,MAX(num_appeared)
-FROM(
-SELECT name, COUNT(name) AS num_appeared
-FROM
-(SELECT  title, name
-FROM characters,seasons, episodes
-WHERE season_number=debutSeason AND season_number=seasonID AND charID=secondaryProtag
-GROUP BY title));
-
-
---6. Given a season, give information and protagonists
-
-SELECT title,first_aired,last_aired,name AS character
-FROM seasons,characters
-WHERE charID= protagonistID;
-
---7. how many female and how many male characters are in each season->grouped
-
-
-SELECT  title, gender,COUNT(name) AS num_appeared
-FROM characters,seasons
-WHERE season_number=debutSeason 
-GROUP BY title,gender;
-
-
---8.calculate how old each character is today based on their birth_year
-SELECT name, strftime('%Y','now') - birth_year AS age
-FROM characters;
-
---9.which season is the longest
-
-SELECT title, MAX(days_it_lasted)
-FROM(
-SELECT title, julianday(last_aired)- julianday(first_aired) AS days_it_lasted          
-FROM seasons);
-
---10.which season is the shortest
-SELECT title, MIN(days_it_lasted)
-FROM(
-SELECT title, julianday(last_aired) - julianday(first_aired) AS days_it_lasted          
-FROM seasons);
-
-
-
-
-
-
-
-
-
