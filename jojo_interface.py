@@ -221,6 +221,9 @@ def characterInfo(conn, name):
         cur = conn.cursor()
         cur.execute(sql, args)
         rows = cur.fetchall()
+        if len(rows) == 0:
+            print("Invalid Character Name\n")
+            return
         charID = rows[0][0]
         birthYear = rows[0][2]
         charGender = rows[0][3]
