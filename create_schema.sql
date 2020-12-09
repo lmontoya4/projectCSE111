@@ -1,23 +1,20 @@
 CREATE TABLE stands(
 standID INT,
 charID INT,
-name varchar(40),
+s_name varchar(40),
 range_type varchar(25),
 ability_type varchar(25),
 form_type varchar(25),
 special_type varchar(25)
-PRIMARY KEY(standID),
 );
-
 
 CREATE TABLE characters(
 charID INT,
-name varchar (40),
+c_name varchar (40),
 birth_year INT,
-gender varchar (6),
+gender varchar (15),
 hairColor varchar (10),
-debutSeason INT,
-PRIMARY KEY(charID)
+debutSeason INT
 );
 
 CREATE TABLE namesakes(
@@ -34,10 +31,9 @@ CREATE TABLE seasons(
 season_number INT,
 title varchar(40),
 protagonistID INT,
-antogonistID INT,
+antagonistID INT,
 first_aired date,
-last_aired date,
-PRIMARY KEY(season_number)
+last_aired date
 );
 
 CREATE TABLE episodes(
@@ -50,16 +46,12 @@ outro_songID INT,
 primaryProtag INT,
 secondaryProtag INT,
 primaryAntag INT,
-secondaryAntag INT,
-PRIMARY KEY(episodeID),
-FOREIGN KEY (intro_songID) REFERENCES songs(songID),
-FOREIGN KEY (outro_songID) REFERENCES songs(songID)
+secondaryAntag INT
 );
 
 CREATE TABLE songs(
 songID INT,
 title varchar(40),
 artist varchar(40),
-release_date date,
-PRIMARY KEY(songID)
+release_date date
 );
